@@ -131,4 +131,8 @@
   h2 {
     @apply text-4xl font-mono;
   }
+
+  .typography p {
+    @apply mb-4;
+  }
 }

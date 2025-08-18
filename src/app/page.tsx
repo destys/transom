@@ -8,6 +8,10 @@ import { HomeWhyWe } from "@/components/home/home-why-we";
 import { HomeServices } from "@/components/home/home-services";
 import { getData } from "@/actions/get-data";
 import { ServiceProps } from "@/types/service.types";
+import { HomeAbout } from "@/components/home/home-about";
+import { HomeWarranty } from "@/components/home/home-warranty";
+import { GlobalBlocksProps } from "@/types/global-blocks.types";
+import { GlobalClients } from "@/components/global/global-clients";
 
 export async function generateMetadata() {
   const { data: page } = await getPage<HomePageProps>("home-page", {
@@ -31,7 +35,39 @@ const HomePage = async () => {
       },
       whyWe: {
         populate: "*",
-      }
+      },
+      about: {
+        populate: {
+          image: {
+            populate: "*",
+          },
+          advantages: {
+            populate: "*",
+          }
+        }
+      },
+      warranty: {
+        populate: "*",
+      },
+    },
+  })
+
+  const { data: global } = await getPage<GlobalBlocksProps>("global-block", {
+    populate: {
+      clients: {
+        populate: {
+          images: {
+            populate: "*",
+          }
+        },
+      },
+      reviews: {
+        populate: {
+          image: {
+            populate: "*",
+          }
+        },
+      },
     },
   })
 
@@ -46,6 +82,9 @@ const HomePage = async () => {
       {data.intro && <HomeIntro data={data.intro} />}
       {data.whyWe && <HomeWhyWe data={data.whyWe} />}
       {!!services.length && <HomeServices data={services} />}
+      {data.about && <HomeAbout data={data.about} />}
+      {data.warranty && <HomeWarranty data={data.warranty} />}
+      {global?.clients && <GlobalClients data={global.clients} />}
     </>
   )
 }

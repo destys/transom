@@ -17,7 +17,7 @@ const buttonVariants = cva(
         secondary:
           "bg-transparent text-sand-base border-sand-base border-2 shadow-xs hover:bg-sand-base hover:text-white",
         secondaryFilled:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+          "bg-sand-base text-white uppercase text-xs hover:bg-sand-base/80",
       },
       size: {
         default: "h-14 px-6 py-5",
