@@ -12,6 +12,9 @@ import { HomeAbout } from "@/components/home/home-about";
 import { HomeWarranty } from "@/components/home/home-warranty";
 import { GlobalBlocksProps } from "@/types/global-blocks.types";
 import { GlobalClients } from "@/components/global/global-clients";
+import { GlobalReviews } from "@/components/global/global-reviews";
+import { HomeNews } from "@/components/home/home-news";
+import { NewsProps } from "@/types/news.types";
 
 export async function generateMetadata() {
   const { data: page } = await getPage<HomePageProps>("home-page", {
@@ -75,6 +78,14 @@ const HomePage = async () => {
     populate: "*",
   });
 
+  const { data: news } = await getData<NewsProps>("news", {
+    populate: "*",
+    sort: ["createdAt:desc"],
+    pagination: {
+      pageSize: 3
+    }
+  });
+
   if (!data) return notFound();
 
   return (
@@ -85,6 +96,8 @@ const HomePage = async () => {
       {data.about && <HomeAbout data={data.about} />}
       {data.warranty && <HomeWarranty data={data.warranty} />}
       {global?.clients && <GlobalClients data={global.clients} />}
+      {global?.reviews && <GlobalReviews data={global.reviews} />}
+      {news && <HomeNews data={news} />}
     </>
   )
 }
