@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export const Footer = () => {
     return (
-        <footer className="bg-[#EEF3FB] mt-[110px]">
+        <footer className="bg-[#EEF3FB]">
             <div className="container relative">
                 <FooterForm />
                 <div className="flex gap-5 items-center w-full mb-[72px] -mt-[63px]">

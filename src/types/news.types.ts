@@ -1,6 +1,7 @@
 import { BlocksContent } from "@strapi/blocks-react-renderer";
 
 import { MediaProps } from "./media.types";
+import { SeoProps } from "./seo.types";
 
 export interface NewsProps {
   documentId: string;
@@ -11,4 +12,5 @@ export interface NewsProps {
   createdAt: string;
   image: MediaProps;
   text: BlocksContent;
+  seo: SeoProps;
 }

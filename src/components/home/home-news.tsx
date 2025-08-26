@@ -11,7 +11,7 @@ interface Props {
 
 export const HomeNews = ({ data }: Props) => {
     return (
-        <section className="pt-20 pb-24">
+        <section className="pt-20 pb-24 mb-24">
             <div className="container">
                 <div className="mb-8 h-[3px] w-[59px] bg-sand-base" />
                 <h2 className="mb-[73px] text-aqua-base">Новости</h2>

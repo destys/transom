@@ -120,6 +120,10 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    @apply scroll-smooth;
+  }
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
@@ -128,11 +132,47 @@
     @apply mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8;
   }
 
+  h1 {
+    @apply font-mono text-aqua-base text-3xl md:text-xl lg:text-5xl;
+  }
+
   h2 {
     @apply text-4xl font-mono;
   }
 
   .typography p {
     @apply mb-4;
+  }
+
+  .post-content {
+    @apply xl:columns-2;
+  }
+
+  .post-content * {
+    @apply break-inside-avoid;
+  }
+
+  .post-content p {
+    @apply mb-6;
+  }
+
+  .post-content h3 {
+    @apply text-xl font-semibold text-aqua-base mt-9 mb-5;
+  }
+
+  .post-content ul {
+    @apply list-inside list-disc;
+  }
+
+  .post-content li {
+    @apply mb-4;
+  }
+
+  .post-content strong {
+    @apply text-aqua-base;
+  }
+
+  .post-content blockquote {
+    @apply px-8 py-9 bg-[#EEF3FB] before:content-['“'] before:block before:text-[64px] before:font-bold before:leading-none before:text-aqua-base before:-mb-5;
   }
 }
