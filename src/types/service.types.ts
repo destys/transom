@@ -1,3 +1,5 @@
+import { BlocksContent } from "@strapi/blocks-react-renderer";
+
 import { MediaProps } from "./media.types";
 import { SeoProps } from "./seo.types";
 
@@ -10,4 +12,6 @@ export interface ServiceProps {
   menuIndex: number;
   isWide: boolean;
   seo: SeoProps;
+  text_1: BlocksContent;
+  content: any;
 }

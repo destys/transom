@@ -9,19 +9,21 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import { ReviewsProps } from '@/types/global-blocks.types';
 import { API_URL } from '@/constants';
+import { cn } from '@/lib/utils';
 
 import 'swiper/css';
 
 interface Props {
     data: ReviewsProps[];
+    isBackground?: boolean;
 }
 
-export const GlobalReviews = ({ data }: Props) => {
+export const GlobalReviews = ({ data, isBackground = false }: Props) => {
     const swiperRef = React.useRef<SwiperType | null>(null);
     const [active, setActive] = React.useState(0);
 
     return (
-        <section className="bg-[#EEF3FB] py-20">
+        <section className={cn("bg-[#EEF3FB] py-20", !isBackground && "bg-transparent")}>
             <div className="container">
                 <div className="mb-8 h-[3px] w-[59px] bg-sand-base" />
                 <h2 className="mb-[73px] text-aqua-base">Отзывы</h2>

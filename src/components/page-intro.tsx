@@ -12,11 +12,15 @@ interface Props {
     titleColor?: string;
     className?: string;
     bg?: MediaProps;
+    crumbs?: {
+        title: string;
+        slug?: string;
+    }[];
 }
 
-export const PageIntro = ({ title, bg, backgroundColor, titleColor, className }: Props) => {
+export const PageIntro = ({ title, bg, backgroundColor, titleColor, className, crumbs }: Props) => {
 
-    const crumbsData = [
+    const crumbsData = crumbs ? crumbs : [
         {
             title: title
         }
@@ -29,7 +33,7 @@ export const PageIntro = ({ title, bg, backgroundColor, titleColor, className }:
                 <Image src={`${API_URL}${bg.url}`} alt='bg' fill className='z-10' />
             )}
             <div className="container relative z-30 flex flex-col items-center justify-center">
-                <Crumbs data={crumbsData} textColor={cn("", !backgroundColor && "text-foreground")} />
+                <Crumbs data={crumbsData} textColor={cn("text-white", !backgroundColor && "text-foreground")} />
                 <h1 className='font-mono text-5xl' style={{ color: titleColor || '#e0bf8c' }}>{title}</h1>
             </div>
 

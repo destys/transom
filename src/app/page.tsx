@@ -96,7 +96,7 @@ const HomePage = async () => {
       {data.about && <HomeAbout data={data.about} />}
       {data.warranty && <HomeWarranty data={data.warranty} />}
       {global?.clients && <GlobalClients data={global.clients} />}
-      {global?.reviews && <GlobalReviews data={global.reviews} />}
+      {global?.reviews && <GlobalReviews data={global.reviews} isBackground={true} />}
       {news && <HomeNews data={news} />}
     </>
   )

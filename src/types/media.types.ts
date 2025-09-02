@@ -3,5 +3,6 @@ export interface MediaProps {
   mime: string;
   width: number;
   height: number;
-  alt: string;
+  id: number;
+  alternateText: string;
 }
