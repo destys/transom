@@ -13,7 +13,7 @@ interface Props {
 export const HomeWarranty = ({ data }: Props) => {
     return (
         <section className="relative py-[100px]">
-            <Image src={`${API_URL}${data.bgImage.url}`} alt={data.bgImage.alt || data.title} fill className="object-cover object-center" />
+            <Image src={`${API_URL}${data.bgImage.url}`} alt={data.bgImage.alternateText || data.title} fill className="object-cover object-center" />
             <div className="container relative z-10">
                 <div className="max-w-[696px] space-y-7">
                     <Pretitle text={data.pretitle} className="mb-7" />
