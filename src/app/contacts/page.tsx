@@ -1,8 +1,30 @@
 import Image from "next/image"
 import Link from "next/link"
+import { notFound } from "next/navigation";
 
+import { getPage } from "@/actions/get-page";
+import { getSeoMetadata } from "@/components/seo-metadata";
+import { ContactsPageProps } from "@/types/contacts.types";
 
-const ContactsPage = () => {
+export async function generateMetadata() {
+    const { data: page } = await getPage<ContactsPageProps>("contacts-page", {
+        populate: {
+            seo: {
+                populate: "*",
+            }
+        }
+    });
+
+    if (!page) return null;
+
+    return getSeoMetadata(page.seo);
+}
+
+const ContactsPage = async () => {
+    const { data: page } = await getPage<ContactsPageProps>("contacts-page");
+
+    if (!page) return notFound();
+
     return (
         <div className="relative min-h-[820px] h-[73vh] flex items-center">
             <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A55a3bf6619e74df28110d166504a0ed623a1f51ea8f73d47d4b29862a9fc0547&amp;source=constructor" width="1280" height="720" className="size-full absolute inset-0"></iframe>
