@@ -9,14 +9,14 @@ export interface IndustriesPageProps {
   title: string;
   seo: SeoProps;
   gallery: IndusriesGalleryProps[];
-  text: BlocksContent;
-  rows: IndustriesRowsProps[];
 }
 
 export interface IndusriesGalleryProps {
   id: number;
   title: string;
   image: MediaProps;
+  description: BlocksContent;
+  rows: IndustriesRowsProps[];
 }
 
 export interface IndustriesRowsProps {

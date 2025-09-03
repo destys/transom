@@ -56,6 +56,12 @@ const ServicePage = async ({ params }: Props) => {
                             }
                         }
                     },
+                    'services.text-block': {
+                        populate: "*"
+                    },
+                    'services.service-steps': {
+                        populate: "*"
+                    },
                 },
             },
         },

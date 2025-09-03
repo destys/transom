@@ -12,7 +12,7 @@ interface Props {
 export const Experts = ({ data, isBackground = true }: Props) => {
 
     return (
-        <div className={cn("py-28 mb-24", isBackground && "bg-aqua-base text-white mb-0")}>
+        <div className={cn("mb-44 py-16", isBackground && "bg-aqua-base text-white mb-0 py-28 ")}>
             <div className="container">
                 <div className="mb-8 h-[3px] w-[59px] bg-sand-base" />
                 <h2 className="mb-11">Наши лучшие эксперты</h2>

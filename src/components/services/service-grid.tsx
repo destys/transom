@@ -20,7 +20,7 @@ interface Props {
 
 export const ServiceGrid = ({ data }: Props) => {
     return (
-        <div>
+        <div className="mb-28">
             <div className="container">
                 <div className="grid grid-cols-12 gap-5 mb-16">
                     <h2 className="font-sans col-span-5 text-3xl font-semibold">{data.title}</h2>

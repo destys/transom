@@ -1,12 +1,10 @@
 import { notFound } from "next/navigation";
-import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 import { getPage } from "@/actions/get-page";
 import { PageIntro } from "@/components/page-intro"
 import { IndustriesPageProps } from "@/types/industries-page.types";
 import { IndustriesGallery } from "@/components/industries/industries-gallery";
 import { getSeoMetadata } from "@/components/seo-metadata";
-import { IndustriesRows } from "@/components/industries/industries-rows";
 
 export async function generateMetadata() {
     const { data: page } = await getPage<IndustriesPageProps>("industries-page", {
@@ -26,11 +24,16 @@ const IndustriesPage = async () => {
     const { data: page } = await getPage<IndustriesPageProps>("industries-page", {
         populate: {
             gallery: {
-                populate: "*",
+                populate: {
+                    image: {
+                        populate: "*",
+                    },
+                    rows: {
+                        populate: "*",
+                    }
+                },
             },
-            rows: {
-                populate: "*",
-            }
+
         }
     });
 
@@ -40,12 +43,6 @@ const IndustriesPage = async () => {
         <div>
             <PageIntro title={page.title} titleColor="#000e54" className="-mb-20" />
             {!!page.gallery?.length && <IndustriesGallery data={page.gallery} />}
-            {page.text && (
-                <div className="container mb-32 text-[22px]">
-                    <BlocksRenderer content={page.text} />
-                </div>
-            )}
-            {!!page.rows?.length && <IndustriesRows data={page.rows} />}
         </div>
     )
 }
