@@ -62,6 +62,35 @@ const ServicePage = async ({ params }: Props) => {
                     'services.service-steps': {
                         populate: "*"
                     },
+                    'services.approach': {
+                        populate: "*"
+                    },
+                    'services.yellow-blocks': {
+                        populate: "*"
+                    },
+                    'services.comparison-section': {
+                        populate: {
+                            before: {
+                                populate: "*"
+                            },
+                            after: {
+                                populate: "*"
+                            },
+                        }
+                    },
+                    'services.range-services': {
+                        populate: "*"
+                    },
+                    'services.why-we': {
+                        populate: {
+                            rows: {
+                                populate: "*"
+                            }
+                        }
+                    },
+                    'services.problems': {
+                        populate: "*"
+                    },
                 },
             },
         },

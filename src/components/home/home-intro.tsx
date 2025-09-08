@@ -28,7 +28,7 @@ export const HomeIntro = ({ data }: Props) => {
                             autoPlay
                             loop
                             muted
-                            className="absolute inset-0 w-full h-full object-cover z-30"
+                            className="absolute inset-0 w-full h-full object-cover z-10"
                         />
                     )}
                 </>
