@@ -7,11 +7,11 @@ import { Footer } from "@/components/layout/footer";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
-  subsets: ["latin", "cyrillic"]
+  subsets: ["latin", "cyrillic"],
 });
 const merriweather = Merriweather({
   variable: "--font-merriweather",
-  subsets: ["latin", "cyrillic"]
+  subsets: ["latin", "cyrillic"],
 });
 
 export const metadata: Metadata = {
@@ -33,11 +33,9 @@ export default function RootLayout({
       <body
         className={`${montserrat.className} ${merriweather.variable} antialiased`}
       >
-        <div className="flex flex-col min-h-screen pt-[70px]">
+        <div className="flex flex-col min-h-screen pt-14 md:pt-[70px]">
           <Header />
-          <main className="flex-grow">
-            {children}
-          </main>
+          <main className="flex-grow">{children}</main>
           <Footer />
         </div>
       </body>

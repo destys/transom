@@ -179,4 +179,12 @@
   .post-content blockquote {
     @apply px-8 py-9 bg-[#EEF3FB] before:content-['“'] before:block before:text-[64px] before:font-bold before:leading-none before:text-aqua-base before:-mb-5;
   }
+
+  html {
+    scrollbar-gutter: stable; /* всегда резервирует место под скролл */
+  }
+
+  body.locked {
+    @apply overflow-hidden;
+  }
 }
