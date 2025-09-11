@@ -69,14 +69,14 @@ export const HomeAbout = ({ data }: Props) => {
       <div className="container">
         {/* Верхняя двухколоночная часть */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-28 mb-20"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 2xl:gap-28 mb-20"
           variants={containerStagger}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
         >
           {/* Картинка (въезжает слева) */}
-          <motion.div variants={slideLeft} className="relative">
+          <motion.div variants={slideLeft} className="relative min-h-[400px]">
             <Image
               src={`${API_URL}${data.image.url}`}
               alt={data.title}
@@ -88,14 +88,14 @@ export const HomeAbout = ({ data }: Props) => {
           </motion.div>
 
           {/* Текстовый столбец (въезжает справа) */}
-          <motion.div variants={slideRight} className="pt-20 pb-7">
+          <motion.div variants={slideRight} className="md:pt-20 pb-7">
             <Pretitle text={data.pretitle} className="mb-5" />
             <h2 className="mb-6 max-w-[480px] text-aqua-base">{data.title}</h2>
             <div
               dangerouslySetInnerHTML={{ __html: data.text }}
               className="mb-9 max-w-[444px]"
             />
-            <div className="grid grid-cols-1 md:grid-cols-2 mb-10 pb-9 border-b border-[#EEF3FB] max-w-[480px]">
+            <div className="grid grid-cols-1 lg::grid-cols-2 gap-4 mb-10 pb-9 border-b border-[#EEF3FB] max-w-[480px]">
               <div className="flex gap-5">
                 <div className="mt-1 shrink-0 basis-2.5 size-2.5 bg-sand-base" />
                 <div>
@@ -121,7 +121,9 @@ export const HomeAbout = ({ data }: Props) => {
               </div>
             </div>
             <Link href="/mission" passHref>
-              <Button variant="default">Наша миссия</Button>
+              <Button variant="default" className="max-sm:w-full">
+                Наша миссия
+              </Button>
             </Link>
           </motion.div>
         </motion.div>

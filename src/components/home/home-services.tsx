@@ -3,19 +3,21 @@ import { ServiceCard } from "../services/service-card";
 import { ServiceProps } from "@/types/service.types";
 
 interface Props {
-    data: ServiceProps[];
+  data: ServiceProps[];
 }
 
 export const HomeServices = ({ data }: Props) => {
-    return (
-        <section className="py-24">
-            <div className="container">
-                <div className="grid grid-cols-4 gap-5">
-                    {data.sort((a, b) => a.menuIndex - b.menuIndex).map((service) => (
-                        <ServiceCard key={service.documentId} data={service} />
-                    ))}
-                </div>
-            </div>
-        </section>
-    )
-}
+  return (
+    <section className="py-12 lg:py-24">
+      <div className="container">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {data
+            .sort((a, b) => a.menuIndex - b.menuIndex)
+            .map((service) => (
+              <ServiceCard key={service.documentId} data={service} />
+            ))}
+        </div>
+      </div>
+    </section>
+  );
+};
