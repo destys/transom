@@ -8,7 +8,11 @@ import Image from "next/image";
 import { getPage } from "@/actions/get-page";
 import { MenuItemProps, MenuProps } from "@/types/menu.types";
 
-export const HeaderMobileMenu = () => {
+interface Props {
+  setIsMenuOpen: (a: boolean) => void;
+}
+
+export const HeaderMobileMenu = ({ setIsMenuOpen }: Props) => {
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState<MenuItemProps[]>([]);
 
@@ -49,6 +53,7 @@ export const HeaderMobileMenu = () => {
                 <Link
                   href={item.link}
                   className="flex items-center gap-1 py-4 w-full justify-between font-semibold text-xs text-aqua-base transition-colors hover:text-sand-base md:py-0 md:justify-start md:w-fit"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.title}
                   {item.addChevron && <ChevronRightIcon className="size-3" />}

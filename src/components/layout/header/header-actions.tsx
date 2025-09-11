@@ -65,7 +65,7 @@ export const HeaderActions = () => {
             isMenuOpen && "opacity-100 translate-y-0 pointer-events-auto z-10"
           )}
         >
-          <HeaderMobileMenu />
+          <HeaderMobileMenu setIsMenuOpen={setIsMenuOpen} />
         </div>
       </div>
     </div>
