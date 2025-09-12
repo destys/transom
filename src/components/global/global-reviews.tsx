@@ -1,11 +1,13 @@
 "use client";
 
-import * as React from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Lightbox from "yet-another-react-lightbox";
+import { useMemo, useRef, useState } from "react";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 import { ReviewsProps } from "@/types/global-blocks.types";
 import { API_URL } from "@/constants";
@@ -19,8 +21,21 @@ interface Props {
 }
 
 export const GlobalReviews = ({ data, isBackground = false }: Props) => {
-  const swiperRef = React.useRef<SwiperType | null>(null);
-  const [active, setActive] = React.useState(0);
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [active, setActive] = useState(0);
+
+  const [open, setOpen] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  // Slides для лайтбокса
+  const slides = useMemo(
+    () =>
+      data.map((item) => ({
+        src: `${API_URL}${item.image.url}`,
+        alt: item.image.alternateText || "Рейтинг",
+      })),
+    [data]
+  );
 
   return (
     <section
@@ -40,12 +55,18 @@ export const GlobalReviews = ({ data, isBackground = false }: Props) => {
           onSlideChange={(swiper) => setActive(swiper.activeIndex)}
           className="!pb-0"
         >
-          {data.map((item) => (
+          {data.map((item, i) => (
             <SwiperSlide
               key={item.id}
               className="!flex flex-col md:items-center md:flex-row gap-4 md:gap-10 2xl:gap-[120px]"
             >
-              <div className="relative h-[537px] md:basis-1/3 md:shrink-0 md:max-w-[380px]">
+              <div
+                className="relative h-[537px] md:basis-1/3 md:shrink-0 md:max-w-[380px]"
+                onClick={() => {
+                  setIndex(i);
+                  setOpen(true);
+                }}
+              >
                 <Image
                   src={`${API_URL}${item.image.url}`}
                   alt={item.name}
@@ -105,6 +126,16 @@ export const GlobalReviews = ({ data, isBackground = false }: Props) => {
           </button>
         </div>
       </div>
+      {/* Лайтбокс */}
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        index={index}
+        slides={slides}
+        plugins={[Zoom]}
+        controller={{ closeOnBackdropClick: true }}
+        zoom={{ maxZoomPixelRatio: 2.5 }}
+      />
     </section>
   );
 };
