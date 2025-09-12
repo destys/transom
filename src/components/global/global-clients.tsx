@@ -1,5 +1,7 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 import { Button } from "../ui/button";
 
@@ -13,6 +15,12 @@ interface Props {
 }
 
 export const GlobalClients = ({ data, isBackground = false }: Props) => {
+  const [showAll, setShowAll] = useState(false);
+
+  const images = data.images || [];
+  const hasMore = images.length > 15;
+  const visibleImages = showAll ? images : images.slice(0, 15);
+
   return (
     <section
       className={cn(
@@ -23,8 +31,10 @@ export const GlobalClients = ({ data, isBackground = false }: Props) => {
       <div className="container">
         <div className="mb-8 w-[59px] h-[3px] bg-sand-base"></div>
         <h2 className="mb-[73px] text-aqua-base">{data.title}</h2>
+
+        {/* сетка картинок */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-5 gap-y-20 lg:gap-y-20 lg:gap-x-32 mb-12 lg:mb-28">
-          {data.images.map((image, index) => (
+          {visibleImages.map((image, index) => (
             <div key={index} className="flex md:justify-center items-center">
               <Image
                 src={`${API_URL}${image.url}`}
@@ -36,11 +46,19 @@ export const GlobalClients = ({ data, isBackground = false }: Props) => {
             </div>
           ))}
         </div>
-        <Link href="/clients" passHref className="flex justify-center">
-          <Button variant={"default"} className="mx-auto max-sm:w-full">
-            Показать ещё
-          </Button>
-        </Link>
+
+        {/* кнопка */}
+        {hasMore && !showAll && (
+          <div className="flex justify-center">
+            <Button
+              variant="default"
+              className="mx-auto max-sm:w-full"
+              onClick={() => setShowAll(true)}
+            >
+              Показать ещё
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
