@@ -65,7 +65,7 @@ export const HeaderSearch = ({ isOpen, setIsSearchOpen }: Props) => {
         />
         <button
           type="button"
-          className="shrink-0 basis-[70px] size-[70px] flex items-center justify-center bg-sand-base cursor-pointer relative z-20"
+          className="shrink-0 basis-[70px] size-[70px] max-md:h-14 flex items-center justify-center bg-sand-base cursor-pointer relative z-20"
           onClick={() => setIsSearchOpen(false)}
         >
           {isOpen ? (
