@@ -8,6 +8,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Lightbox from "yet-another-react-lightbox";
 import { useMemo, useRef, useState } from "react";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/styles.css";
 
 import { ReviewsProps } from "@/types/global-blocks.types";
 import { API_URL } from "@/constants";
