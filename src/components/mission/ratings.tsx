@@ -35,9 +35,9 @@ export const Ratings = ({ data }: Props) => {
   );
 
   return (
-    <div className="grid grid-cols-5 items-center gap-5">
+    <div className="lg:grid lg:grid-cols-5 items-center gap-5">
       {/* Заголовок */}
-      <div className="col-span-5 grid grid-cols-5 gap-5">
+      <div className="col-span-5 lg:grid lg:grid-cols-5 gap-5">
         <div />
         <div className="col-span-3">
           <div className="mb-8 h-[3px] w-[59px] bg-sand-base" />
@@ -49,19 +49,26 @@ export const Ratings = ({ data }: Props) => {
       {/* Кнопка влево */}
       <button
         onClick={() => swiperRef.current?.slidePrev()}
-        className="flex justify-center items-center cursor-pointer"
+        className="flex justify-center items-center cursor-pointer max-lg:hidden"
       >
         <ChevronLeftIcon />
       </button>
 
       {/* Слайдер */}
-      <div className="col-span-3">
+      <div className="col-span-3 max-lg:flex max-lg:items-center">
+        <button
+          onClick={() => swiperRef.current?.slidePrev()}
+          className="flex justify-center items-center cursor-pointer lg:hidden"
+        >
+          <ChevronLeftIcon />
+        </button>
         <Swiper
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper;
           }}
           loop
           slidesPerView={1}
+          className="flex-auto"
         >
           {data.map((item, i) => (
             <SwiperSlide
@@ -88,12 +95,18 @@ export const Ratings = ({ data }: Props) => {
             </SwiperSlide>
           ))}
         </Swiper>
+        <button
+          onClick={() => swiperRef.current?.slideNext()}
+          className="flex justify-center items-center cursor-pointer lg:hidden"
+        >
+          <ChevronRightIcon />
+        </button>
       </div>
 
       {/* Кнопка вправо */}
       <button
         onClick={() => swiperRef.current?.slideNext()}
-        className="flex justify-center items-center cursor-pointer"
+        className="flex justify-center items-center cursor-pointer max-lg:hidden"
       >
         <ChevronRightIcon />
       </button>
