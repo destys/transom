@@ -13,7 +13,7 @@ export const Experts = ({ data, isBackground = true }: Props) => {
   return (
     <div
       className={cn(
-        "mb-20 lg:mb-44 py-8 lg:py-16",
+        "mb-44 py-8 lg:py-16",
         isBackground && "bg-aqua-base text-white mb-0 py-14 lg:py-28 "
       )}
     >
