@@ -42,7 +42,16 @@ export const PageIntro = ({
           style={{ backgroundColor: backgroundColor || "#000e54" }}
         />
       )}
-      {bg && (
+      {bg && bg.mime.startsWith("video/") && (
+        <video
+          src={`${API_URL}${bg.url}`}
+          autoPlay
+          loop
+          muted
+          className="absolute inset-0 w-full h-full object-cover z-10"
+        />
+      )}
+      {bg && bg.mime.startsWith("image/") && (
         <Image src={`${API_URL}${bg.url}`} alt="bg" fill className="z-10" />
       )}
       <div className="container relative z-30 flex flex-col items-center justify-center">
