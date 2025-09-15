@@ -11,7 +11,7 @@ interface Props {
 export const MoreThan = ({ data }: Props) => {
   return (
     <div className="mb-44">
-      <div className="gri grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center mb-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center mb-24">
         <div className="relative">
           {data.image && (
             <Image
