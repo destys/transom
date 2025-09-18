@@ -1,6 +1,47 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
 export const ProjectsMap = () => {
+  const svgRef = useRef<SVGSVGElement | null>(null);
+
+  function useHotspotsBringToFront(
+    rootRef: React.RefObject<SVGSVGElement | null>,
+    selector = "g[data-hotspot]"
+  ) {
+    useEffect(() => {
+      const root = rootRef.current;
+      if (!root) return;
+
+      const spots = Array.from(root.querySelectorAll<SVGGElement>(selector));
+      const handlers: Array<[SVGGElement, () => void]> = [];
+
+      spots.forEach((spot) => {
+        const bringToFront = () => {
+          const parent = spot.parentNode;
+          if (parent && parent.lastChild !== spot) parent.appendChild(spot);
+        };
+        spot.addEventListener("mouseenter", bringToFront);
+        spot.addEventListener("focusin", bringToFront);
+        spot.addEventListener("touchstart", bringToFront, { passive: true });
+
+        handlers.push([spot, bringToFront]);
+      });
+
+      return () => {
+        handlers.forEach(([spot, fn]) => {
+          spot.removeEventListener("mouseenter", fn);
+          spot.removeEventListener("focusin", fn);
+          spot.removeEventListener("touchstart", fn);
+        });
+      };
+    }, [rootRef, selector]);
+  }
+
+  useHotspotsBringToFront(svgRef);
+
   return (
-    <div>
+    <div className="max-xl:hidden -mt-80">
       <svg
         width="2356"
         height="1457"
@@ -8,6 +49,7 @@ export const ProjectsMap = () => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="size-full"
+        ref={svgRef}
       >
         <g clipPath="url(#clip0_1722_8114)">
           <rect width="2356" height="1457" fill="white" />
@@ -2017,7 +2059,7 @@ export const ProjectsMap = () => {
           </g>
           {/* DOTS */}
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="564"
@@ -2174,7 +2216,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="639"
@@ -2219,7 +2261,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="571"
@@ -2265,7 +2307,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/*  */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="814"
@@ -2310,7 +2352,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="492"
@@ -2356,7 +2398,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/* Воркута */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="958"
@@ -2405,7 +2447,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/* р.п. Многовершинный */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="1788"
@@ -2454,7 +2496,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/*  Железногорск-Илимский */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="1354"
@@ -2502,7 +2544,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="483"
@@ -2547,7 +2589,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="582"
@@ -2592,7 +2634,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="805"
@@ -2648,7 +2690,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="478"
@@ -2694,7 +2736,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/*  */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="726"
@@ -2739,7 +2781,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="675"
@@ -2787,7 +2829,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="560"
@@ -2835,7 +2877,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="584"
@@ -2880,7 +2922,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="699"
@@ -2925,7 +2967,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="629"
@@ -2970,7 +3012,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="392"
@@ -3016,7 +3058,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/* Краснокаменск */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="1554"
@@ -3064,7 +3106,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="451"
@@ -3110,7 +3152,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/* Междуреченск */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="1129"
@@ -3158,7 +3200,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="547"
@@ -3206,7 +3248,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="569"
@@ -3255,7 +3297,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/* Надым */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="1012"
@@ -3301,7 +3343,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/* Нерюнгри */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="1585"
@@ -3349,7 +3391,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="628"
@@ -3398,7 +3440,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/*  */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="811"
@@ -3444,7 +3486,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/* Новотроицк */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="695"
@@ -3489,7 +3531,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="450"
@@ -3534,7 +3576,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="463"
@@ -3580,7 +3622,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/* Новый Уренгой */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="1053"
@@ -3644,7 +3686,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/* Ноябрьск */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="1020"
@@ -3689,7 +3731,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="779"
@@ -3738,7 +3780,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/* о. Русский */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="1800"
@@ -3786,7 +3828,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="721"
@@ -3831,7 +3873,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="457"
@@ -3877,7 +3919,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/*  */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="430"
@@ -3925,7 +3967,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="437"
@@ -3974,7 +4016,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/*  */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="708"
@@ -4024,7 +4066,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="591"
@@ -4129,7 +4171,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="558"
@@ -4175,7 +4217,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/*  */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="451"
@@ -4220,7 +4262,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="673"
@@ -4266,7 +4308,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/* с. Широкая */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="1548"
@@ -4315,7 +4357,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/* Сургут */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="987"
@@ -4357,7 +4399,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="567"
@@ -4402,7 +4444,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="575"
@@ -4447,7 +4489,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="640"
@@ -4493,7 +4535,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/* УФА */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="728"
@@ -4541,7 +4583,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="825"
@@ -4590,7 +4632,7 @@ export const ProjectsMap = () => {
           </g>
 
           {/* Челябинск */}
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="795"
@@ -4635,7 +4677,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="628"
@@ -4680,7 +4722,7 @@ export const ProjectsMap = () => {
             </g>
           </g>
 
-          <g className="group">
+          <g className="group" data-hotspot>
             <circle
               className="relative -z-10"
               cx="871"
