@@ -101,7 +101,12 @@ export const ServiceRangeServices = ({ data }: Props) => {
           breakpoints={{
             0: { slidesPerView: 1.2, spaceBetween: 0 },
             768: { slidesPerView: 2.2, spaceBetween: 0, initialSlide: 0 },
-            1024: { slidesPerView: 3, spaceBetween: 0 },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 0,
+              centeredSlides: true,
+              initialSlide: 1,
+            },
           }}
           onSwiper={(s) => {
             swiperRef.current = s;
