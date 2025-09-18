@@ -1,5 +1,7 @@
 "use strict";
 
+import { BlocksContent } from "@strapi/blocks-react-renderer";
+
 import { SeoProps } from "./seo.types";
 
 export interface VacanciesPageProps {
@@ -11,5 +13,5 @@ export interface VacanciesPageProps {
 export interface VacancyProps {
   id: number;
   title: string;
-  description: string;
+  description: BlocksContent;
 }

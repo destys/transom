@@ -40,7 +40,7 @@ export const Footer = () => {
             <Image src={"/logo_blue.svg"} alt="logo" width={120} height={28} />
           </Link>
           <div className="md:ml-auto flex flex-col md:flex-row items-center gap-5 max-md:order-2">
-            <div className="flex gap-3.5">
+            {/* <div className="flex gap-3.5">
               <Link
                 href={"mailto:"}
                 className="flex gap-2.5 items-center text-aqua-base text-xs font-semibold"
@@ -53,7 +53,7 @@ export const Footer = () => {
               >
                 <Image src={"/icons/tg.svg"} alt="tg" width={16} height={16} />
               </Link>
-            </div>
+            </div> */}
             <Button variant={"secondaryFilled"}>Обратный звонок</Button>
           </div>
         </div>

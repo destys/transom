@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 import { getPage } from "@/actions/get-page";
 import { getSeoMetadata } from "@/components/seo-metadata";
@@ -65,7 +66,11 @@ const VacanciesPage = async () => {
               <div className="text-aqua-base font-mono text-2xl mb-9">
                 {vacancy.title}
               </div>
-              <div className="mb-9">{vacancy.description}</div>
+              <div className="mb-9 typography">
+                {vacancy.description && (
+                  <BlocksRenderer content={vacancy.description} />
+                )}
+              </div>
               <Button variant={"secondaryFilled"}>
                 Откликнуться на вакансию
               </Button>

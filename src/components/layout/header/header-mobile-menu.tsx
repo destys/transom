@@ -40,19 +40,16 @@ export const HeaderMobileMenu = ({ setIsMenuOpen }: Props) => {
 
   return (
     <div className="flex flex-col md:flex-row bg-white shadow-xl pb-8 md:pb-0">
-      <nav className="min-h-16  flex justify-center items-center p-6">
+      <nav className="min-h-16  flex justify-center items-center p-6 mb-4">
         {loading ? (
           <Loader2Icon className="animate-spin" />
         ) : (
           <ul className="flex flex-col justify-center items-center md:gap-5 w-full md:justify-start md:flex-row xl:gap-6 2xl:gap-10">
             {items.map((item) => (
-              <li
-                key={item.id}
-                className="border-b border-aqua-base w-full transition-colors hover:border-sand-base md:border-0 md:w-auto"
-              >
+              <li key={item.id} className="w-full transition-colors md:w-auto">
                 <Link
                   href={item.link}
-                  className="flex items-center gap-1 py-4 w-full justify-between font-semibold text-xs text-aqua-base transition-colors hover:text-sand-base md:py-0 md:justify-start md:w-fit"
+                  className="flex items-center gap-1 py-4 w-full justify-between font-semibold text-aqua-base text-2xl transition-colors hover:text-sand-base md:py-0 md:justify-start md:w-fit"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.title}
@@ -63,17 +60,17 @@ export const HeaderMobileMenu = ({ setIsMenuOpen }: Props) => {
           </ul>
         )}
       </nav>
-      <div className="flex gap-5 md:gap-2 md:flex-col justify-center px-6 md:hidden">
+      <div className="flex flex-col sm:flex-row gap-5 md:gap-2 md:flex-col justify-center px-6 md:hidden">
         <Link
           href={"tel:"}
-          className="flex gap-2.5 items-center text-aqua-base text-xs font-semibold whitespace-nowrap"
+          className="flex gap-2.5 items-center text-aqua-base text-lg font-semibold whitespace-nowrap"
         >
           <Image src={"/icons/phone.svg"} alt="phone" width={16} height={16} />8
           (495) 780-36-55
         </Link>
         <Link
           href={"mailto:"}
-          className="flex gap-2.5 items-center text-aqua-base text-xs font-semibold whitespace-normal"
+          className="flex gap-2.5 items-center text-aqua-base text-lg font-semibold whitespace-normal"
         >
           <Image src={"/icons/mail.svg"} alt="mail" width={16} height={16} />
           info@transom.ru

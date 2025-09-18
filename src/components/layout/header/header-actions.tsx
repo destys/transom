@@ -2,25 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { MenuIcon, XIcon } from "lucide-react";
+import { useState } from "react";
 
 import { HeaderSearch } from "./header-search";
-import { HeaderMobileMenu } from "./header-mobile-menu";
-
-import { cn } from "@/lib/utils";
 
 export const HeaderActions = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSeachOpen, setIsSearchOpen] = useState(false);
-
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.classList.add("locked");
-    } else {
-      document.body.classList.remove("locked");
-    }
-  }, [isMenuOpen]);
 
   return (
     <div className="flex items-center gap-4 xl:gap-8 2xl:gap-16">
@@ -38,9 +25,9 @@ export const HeaderActions = () => {
         <Image src={"/icons/mail.svg"} alt="mail" width={16} height={16} />
         info@transom.ru
       </Link>
-      <div className="relative -mr-4 lg:mr-0">
+      <div className="md:relative">
         <button
-          className="size-[70px] max-md:h-14 flex items-center justify-center bg-aqua-base cursor-pointer relative z-20"
+          className="size-[70px] flex items-center justify-center bg-aqua-base cursor-pointer relative z-20"
           onClick={() => setIsSearchOpen(!isSeachOpen)}
         >
           <Image
@@ -51,22 +38,6 @@ export const HeaderActions = () => {
           />
         </button>
         <HeaderSearch isOpen={isSeachOpen} setIsSearchOpen={setIsSearchOpen} />
-      </div>
-      <div className="lg:hidden">
-        <button
-          className="size-[70px] max-md:h-14 flex items-center justify-center bg-sand-base cursor-pointer relative z-20 lg:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <XIcon /> : <MenuIcon />}
-        </button>
-        <div
-          className={cn(
-            "opacity-0 -translate-y-full pointer-events-none transition-all absolute top-full left-0 z-0 w-full lg:hidden",
-            isMenuOpen && "opacity-100 translate-y-0 pointer-events-auto z-10"
-          )}
-        >
-          <HeaderMobileMenu setIsMenuOpen={setIsMenuOpen} />
-        </div>
       </div>
     </div>
   );

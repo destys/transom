@@ -43,8 +43,8 @@ export const HeaderSearch = ({ isOpen, setIsSearchOpen }: Props) => {
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className={cn(
-          "flex absolute top-0 right-0 size-full overflow-hidden -z-10 transition-all",
-          isOpen && "z-30 w-[300px]"
+          "flex absolute top-0 right-0 size-[0px] overflow-hidden -z-10 transition-[width]",
+          isOpen && "z-30 size-full md:w-[300px]"
         )}
       >
         <FormField
