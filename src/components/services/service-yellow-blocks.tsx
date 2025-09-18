@@ -44,7 +44,7 @@ export const ServiceYellowBlocks = ({ data }: Props) => {
                 {row.title}
               </div>
               {row.text && (
-                <div className="typography [&_strong]:text-aqua-base">
+                <div className="typography [&_strong]:text-aqua-base [&_del]:no-underline [&_del_strong]:!text-[#FF0000] [&_u]:no-underline [&_u_strong]:!text-[#C6B42C] [&_em]:not-italic [&_em_strong]:!text-[#4DAF48]">
                   <BlocksRenderer content={row.text} />
                 </div>
               )}

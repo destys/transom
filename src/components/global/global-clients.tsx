@@ -12,9 +12,14 @@ import { cn } from "@/lib/utils";
 interface Props {
   data: ClientsProps;
   isBackground?: boolean;
+  className?: string;
 }
 
-export const GlobalClients = ({ data, isBackground = false }: Props) => {
+export const GlobalClients = ({
+  data,
+  isBackground = false,
+  className,
+}: Props) => {
   const [showAll, setShowAll] = useState(false);
 
   const images = data.images || [];
@@ -25,7 +30,8 @@ export const GlobalClients = ({ data, isBackground = false }: Props) => {
     <section
       className={cn(
         "bg-[#EEF3FB] pt-12 lg:pt-24 pb-10 lg:pb-20",
-        !isBackground && "bg-transparent"
+        !isBackground && "bg-transparent",
+        className
       )}
     >
       <div className="container">

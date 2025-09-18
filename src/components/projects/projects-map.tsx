@@ -43,8 +43,6 @@ export const ProjectsMap = () => {
   return (
     <div className="max-xl:hidden -mt-80">
       <svg
-        width="2356"
-        height="1457"
         viewBox="0 0 2356 1457"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
