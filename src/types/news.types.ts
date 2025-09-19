@@ -10,6 +10,7 @@ export interface NewsProps {
   slug: string;
   excerpt: string;
   createdAt: string;
+  search_tags: string;
   image: MediaProps;
   text: BlocksContent;
   seo: SeoProps;

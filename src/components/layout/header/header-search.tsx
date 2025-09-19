@@ -4,6 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { XIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -16,7 +17,7 @@ import {
 } from "@/components/ui/form";
 
 const formSchema = z.object({
-  search: z.string(),
+  search: z.string().min(3),
 });
 
 interface Props {
@@ -25,6 +26,7 @@ interface Props {
 }
 
 export const HeaderSearch = ({ isOpen, setIsSearchOpen }: Props) => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -33,9 +35,8 @@ export const HeaderSearch = ({ isOpen, setIsSearchOpen }: Props) => {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     console.warn(values);
+    router.push(`/search?q=${values.search}`);
   }
 
   return (
@@ -65,7 +66,7 @@ export const HeaderSearch = ({ isOpen, setIsSearchOpen }: Props) => {
         />
         <button
           type="button"
-          className="shrink-0 basis-[70px] size-[70px] max-md:h-14 flex items-center justify-center bg-sand-base cursor-pointer relative z-20"
+          className="shrink-0 basis-[70px] size-[70px] flex items-center justify-center bg-sand-base cursor-pointer relative z-20"
           onClick={() => setIsSearchOpen(false)}
         >
           {isOpen ? (

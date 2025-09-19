@@ -11,6 +11,7 @@ export interface ServiceProps {
   icon: MediaProps;
   menuIndex: number;
   isWide: boolean;
+  search_tags: string;
   seo: SeoProps;
   text_1: BlocksContent;
   content: any;
