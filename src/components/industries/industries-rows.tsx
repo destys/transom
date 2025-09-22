@@ -19,7 +19,7 @@ export const IndustriesRows = ({ data }: Props) => {
             <div className="text-sm lg:text-[22px] mb-5 lg:mb-10">
               {item.description}
             </div>
-            <div>
+            <div className="mb-7 lg:mb-0">
               <div className="text-base lg:text-[22px] mb-4 lg:mb-7">
                 Клиенты:
               </div>
