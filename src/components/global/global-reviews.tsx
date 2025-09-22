@@ -87,7 +87,7 @@ export const GlobalReviews = ({ data, isBackground = false }: Props) => {
         </Swiper>
 
         {/* Навигация + пагинация */}
-        <div className="mt-10 lg:mt-24 flex items-center justify-center gap-14">
+        <div className="my-10 lg:mt-24 lg:mb-0 flex items-center justify-center gap-14">
           <button
             type="button"
             aria-label="Предыдущий отзыв"
