@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { Crumbs } from "./crumbs";
+import { Video } from "./video";
 
 import { MediaProps } from "@/types/media.types";
 import { API_URL } from "@/constants";
@@ -35,12 +36,7 @@ export const PageIntro = ({
       ];
 
   return (
-    <div
-      className={cn(
-        "relative min-h-[300px] lg:min-h-[400px] flex items-center",
-        className
-      )}
-    >
+    <div className={cn("relative min-h-[400px] flex items-center", className)}>
       {backgroundColor && (
         <div
           className="absolute inset-0 z-20 opacity-60"
@@ -48,11 +44,8 @@ export const PageIntro = ({
         />
       )}
       {bg && bg.mime.startsWith("video/") && (
-        <video
-          src={`${API_URL}${bg.url}`}
-          autoPlay
-          loop
-          muted
+        <Video
+          url={`${API_URL}${bg.url}`}
           className="absolute inset-0 w-full h-full object-cover z-10"
         />
       )}
@@ -65,7 +58,7 @@ export const PageIntro = ({
           textColor={cn("text-white", !backgroundColor && "text-foreground")}
         />
         <h1
-          className="font-mono text-3xl lg:text-5xl"
+          className="font-mono text-3xl lg:text-5xl max-md:text-center"
           style={{ color: titleColor || "#e0bf8c" }}
         >
           {title}

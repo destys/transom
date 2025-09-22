@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { OpenModalBtn } from "../open-modal-btn";
+import { Video } from "../video";
 
 import { HomeIntroProps } from "@/types/home-page.types";
 import { API_URL } from "@/constants";
@@ -24,11 +25,8 @@ export const HomeIntro = ({ data }: Props) => {
           )}
 
           {data.background.mime.startsWith("video/") && (
-            <video
-              src={`${API_URL}${data.background.url}`}
-              autoPlay
-              loop
-              muted
+            <Video
+              url={`${API_URL}${data.background.url}`}
               className="absolute inset-0 w-full h-full object-cover z-10"
             />
           )}

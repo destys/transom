@@ -125,7 +125,7 @@ export const ServiceRangeServices = ({ data }: Props) => {
               >
                 <div
                   className={[
-                    "flex md:h-[500px] flex-col justify-between p-5 md:p-7 lg:p-12 text-lg md:text-[22px] text-white transition-all",
+                    "flex h-[250px] md:h-[500px] flex-col justify-between p-5 md:p-7 lg:p-12 text-sm md:text-lg md:text-[22px] text-white transition-all",
                     isActive && "bg-white !text-primary",
                   ].join(" ")}
                 >

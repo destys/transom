@@ -65,7 +65,7 @@ export const HomeAbout = ({ data }: Props) => {
   };
 
   return (
-    <section className="pt-11 pb-16 mb-20 overflow-hiddenx">
+    <section className="pt-11 pb-16 mb-20 overflow-hidden">
       <div className="container">
         {/* Верхняя двухколоночная часть */}
         <motion.div
