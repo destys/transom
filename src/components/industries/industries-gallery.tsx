@@ -63,7 +63,7 @@ export const IndustriesGallery = ({ data }: Props) => {
 
       {/* === Mobile / Tablet: Accordion === */}
       <div className="block mt-20 mb-44 lg:hidden">
-        <Accordion type="single" collapsible className="w-full px-7">
+        <Accordion type="multiple" className="w-full px-7">
           {data.map((item) => (
             <AccordionItem key={item.id} value={item.id.toString()}>
               <AccordionTrigger className="bg-[#EEF3FB] p-[18px] rounded-none border-0 !text-center">
