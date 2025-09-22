@@ -59,7 +59,7 @@ export function SearchResults({
 
   return (
     <>
-      <div className="space-y-6 list-inside list-decimal">
+      <div className="mb-56 lg:mb-44 space-y-6 list-inside list-decimal">
         {results.length === 0 ? (
           <div className="text-gray-500">Ничего не найдено</div>
         ) : (

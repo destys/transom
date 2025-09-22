@@ -1,4 +1,5 @@
-// src/app/search/page.tsx
+import { Metadata } from "next";
+
 import { getData } from "@/actions/get-data";
 import { NewsProps } from "@/types/news.types";
 import { ServiceProps } from "@/types/service.types";
@@ -6,6 +7,25 @@ import { SearchResults } from "@/components/search/search-results";
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Результаты поиска",
+    description: "Результаты поиска на сайте Трансом",
+    robots: {
+      index: false,
+      follow: false,
+      nocache: true,
+      googleBot: {
+        index: false,
+        follow: false,
+        noimageindex: true,
+        "max-video-preview": -1,
+        "max-image-preview": "none",
+        "max-snippet": -1,
+      },
+    },
+  };
+}
 const SearchPage = async ({ searchParams }: { searchParams: SearchParams }) => {
   const sp = await searchParams; // <-- ждём промис
   const q = sp.q;

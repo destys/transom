@@ -127,17 +127,12 @@ export const ServiceSteps = ({ data, gap = 24 }: Props) => {
             {data.steps.map((step, i) => (
               <article
                 key={step.id}
-                className="bg-white rounded-xl shadow-sm ring-1 ring-black/5 p-5 sm:p-6 lg:p-7 w-[280px] sm:w-[320px] lg:w-[360px]"
+                className="bg-white rounded-xl w-[280px] sm:w-[320px] lg:w-[360px]  flex items-start gap-3"
               >
-                <header className="mb-4 flex items-center gap-3">
-                  <div className="flex justify-center items-center bg-sand-base text-aqua-base font-mono text-xl lg:text-2xl font-bold size-10 rounded-full">
-                    {i + 1}
-                  </div>
-                  <div className="text-sm text-aqua-base/70 font-mono">
-                    Шаг {i + 1}
-                  </div>
-                </header>
-                <div className="typography text-sm leading-6 text-gray-700">
+                <div className="flex justify-center items-center bg-sand-base text-aqua-base font-mono text-xl lg:text-2xl font-bold shrink-0 basis-10 size-10 rounded-full">
+                  {i + 1}
+                </div>
+                <div className="typography text-lg leading-6 text-gray-700">
                   <BlocksRenderer content={step.text} />
                 </div>
               </article>

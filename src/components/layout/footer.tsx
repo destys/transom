@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { OpenModalBtn } from "../open-modal-btn";
+
 import { FooterForm } from "@/components/layout/footer/footer-form";
-import { Button } from "@/components/ui/button";
 
 export const Footer = () => {
   return (
@@ -54,7 +55,7 @@ export const Footer = () => {
                 <Image src={"/icons/tg.svg"} alt="tg" width={16} height={16} />
               </Link>
             </div> */}
-            <Button variant={"secondaryFilled"}>Обратный звонок</Button>
+            <OpenModalBtn variant={"secondaryFilled"} text="Обратный звонок" />
           </div>
         </div>
       </div>
