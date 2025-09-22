@@ -7,7 +7,7 @@ import { HeaderMobileWrapper } from "./header/header-mobile-wrapper";
 
 export const Header = () => {
   return (
-    <header className="fixed top-0 left-0 z-50 w-full flex items-center justify-between lg:gap-3.5 xl:gap-7 2xl:gap-14 bg-white h-[70px] max-md:bg-aqua-base">
+    <header className="fixed top-0 left-0 z-[10000] w-full flex items-center justify-between lg:gap-3.5 xl:gap-7 2xl:gap-14 bg-white h-[70px] max-md:bg-aqua-base">
       <HeaderMobileWrapper />
       <Link
         href={"/"}

@@ -1,16 +1,20 @@
+// src/app/search/page.tsx
 import { getData } from "@/actions/get-data";
 import { NewsProps } from "@/types/news.types";
 import { ServiceProps } from "@/types/service.types";
 import { SearchResults } from "@/components/search/search-results";
 
-interface Props {
-  searchParams: {
-    q?: string;
-  };
-}
+type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
-const SearchPage = async ({ searchParams }: Props) => {
-  const searchText = searchParams.q?.trim() || "";
+const SearchPage = async ({ searchParams }: { searchParams: SearchParams }) => {
+  const sp = await searchParams; // <-- ждём промис
+  const q = sp.q;
+  const searchText =
+    typeof q === "string"
+      ? q.trim()
+      : Array.isArray(q)
+        ? (q[0] || "").trim()
+        : "";
 
   if (!searchText) {
     return (
@@ -33,10 +37,7 @@ const SearchPage = async ({ searchParams }: Props) => {
         ],
       },
       populate: "*",
-      pagination: {
-        page: 1,
-        pageSize: 200, // <= правильное поле
-      },
+      pagination: { page: 1, pageSize: 200 },
     }),
     getData<any>("services", {
       filters: {
@@ -46,14 +47,10 @@ const SearchPage = async ({ searchParams }: Props) => {
         ],
       },
       populate: "*",
-      pagination: {
-        page: 1,
-        pageSize: 200, // <= правильное поле
-      },
+      pagination: { page: 1, pageSize: 200 },
     }),
   ]);
 
-  // Собираем результаты в один массив
   const results = [
     ...blogs.data.map((item: NewsProps) => ({
       id: item.documentId,
@@ -81,8 +78,6 @@ const SearchPage = async ({ searchParams }: Props) => {
           <p>Найдено {results.length} упоминаний</p>
         </div>
       </div>
-
-      {/* Клиентский компонент: подсветка и "показать ещё" */}
       <div className="container">
         <SearchResults results={results} searchText={searchText} />
       </div>

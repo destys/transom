@@ -1,8 +1,9 @@
 import Image from "next/image";
 
+import { OpenModalBtn } from "../open-modal-btn";
+
 import { HomeIntroProps } from "@/types/home-page.types";
 import { API_URL } from "@/constants";
-import { Button } from "@/components/ui/button";
 
 interface Props {
   data: HomeIntroProps;
@@ -45,7 +46,7 @@ export const HomeIntro = ({ data }: Props) => {
             {data.title}
           </h1>
           <div className="text-lg">{data.text}</div>
-          <Button>Консультация</Button>
+          <OpenModalBtn text="Консультация" />
         </div>
       </div>
     </section>

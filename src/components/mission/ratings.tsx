@@ -35,13 +35,13 @@ export const Ratings = ({ data }: Props) => {
   );
 
   return (
-    <div className="lg:grid lg:grid-cols-5 items-center gap-5">
+    <div className="mt-16 lg:mt-0 lg:grid lg:grid-cols-5 items-center gap-5">
       {/* Заголовок */}
       <div className="col-span-5 lg:grid lg:grid-cols-5 gap-5">
         <div />
         <div className="col-span-3">
-          <div className="mb-8 h-[3px] w-[59px] bg-sand-base" />
-          <h2 className="text-aqua-base mb-14">Рейтинги</h2>
+          <div className="mb-8 h-[3px] w-[59px] bg-sand-base max-lg:mx-auto" />
+          <h2 className="text-aqua-base mb-14 max-lg:text-center">Рейтинги</h2>
         </div>
         <div />
       </div>

@@ -3,8 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: false,
   env: {
-    API_URL: process.env.API_URL,
-    API_TOKEN: process.env.API_TOKEN,
+    STRAPI_TOKEN: process.env.STRAPI_TOKEN,
   },
   images: {
     remotePatterns: [

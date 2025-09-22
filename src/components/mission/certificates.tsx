@@ -29,8 +29,8 @@ export const Certificates = ({ data }: Props) => {
 
   return (
     <div>
-      <div className="mb-8 h-[3px] w-[59px] bg-sand-base" />
-      <h2 className="text-aqua-base mb-14">Сертификаты</h2>
+      <div className="mb-8 h-[3px] w-[59px] bg-sand-base max-lg:mx-auto" />
+      <h2 className="text-aqua-base mb-14 max-lg:text-center">Сертификаты</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {data.map((item, i) => (

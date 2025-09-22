@@ -98,7 +98,7 @@ export const GlobalReviews = ({ data, isBackground = false }: Props) => {
             <ChevronLeft size={18} />
           </button>
 
-          <div className="flex items-center gap-14">
+          <div className="flex items-center gap-14 max-lg:hidden">
             {data.map((_, i) => {
               const isActive = i === active;
               return (

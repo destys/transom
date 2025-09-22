@@ -34,14 +34,15 @@ const ContactsPage = async () => {
         className="size-full md:absolute inset-0"
       ></iframe>
       <div className="container relative z-10">
-        <div className="bg-white max-w-[555px] p-5 lg:p-[60px]lg: pb-8">
-          <div className="mb-9 pb-8 border-b border-[#D9D9D9] flex flex-col gap-5">
+        <div className="bg-white max-w-[555px] p-5 lg:p-[60px] lg:pb-[68px]">
+          <div className="flex flex-col gap-5">
             <Link
               href="tel:+74957803655"
               className="ext-aqua-base text-2xl lg:text-4xl font-mono transition-colors hover:text-sand-base"
             >
               8 (495) 780-36-55
             </Link>
+            <div className="border-b border-[#D9D9D9]"></div>
             <Link
               href="tel:+74957803655"
               className="flex gap-6 transition-colors hover:text-sand-base"
@@ -77,7 +78,7 @@ const ContactsPage = async () => {
               ИНН 7702338570 КПП 773301001
             </div>
           </div>
-          <div className="flex gap-5">
+          {/* <div className="flex gap-5">
             <Link
               href={"#"}
               title="whatsapp"
@@ -92,7 +93,7 @@ const ContactsPage = async () => {
             >
               <Image src={"/icons/tg.svg"} alt="wa" width={25} height={25} />
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ import { getSeoMetadata } from "@/components/seo-metadata";
 import { VacanciesPageProps } from "@/types/vacancies-page.types";
 import { PageIntro } from "@/components/page-intro";
 import { SearchForm } from "@/components/vacancies/search-form";
-import { Button } from "@/components/ui/button";
+import { VacanciesModalBtn } from "@/components/vacancies/vacancies-modal-btn";
 
 export async function generateMetadata() {
   const { data: page } = await getPage<VacanciesPageProps>("vacancies-page", {
@@ -71,9 +71,10 @@ const VacanciesPage = async () => {
                   <BlocksRenderer content={vacancy.description} />
                 )}
               </div>
-              <Button variant={"secondaryFilled"}>
-                Откликнуться на вакансию
-              </Button>
+              <VacanciesModalBtn
+                variant={"secondaryFilled"}
+                text="Откликнуться на вакансию"
+              />
             </article>
           ))}
         </div>

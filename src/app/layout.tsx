@@ -4,6 +4,7 @@ import { Montserrat, Merriweather } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { ModalProvider } from "@/providers/modal-provider";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -30,14 +31,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Transom" />
+      </head>
       <body
         className={`${montserrat.className} ${merriweather.variable} antialiased`}
       >
-        <div className="flex flex-col min-h-screen pt-14 md:pt-[70px]">
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
+        <ModalProvider>
+          <div className="flex flex-col min-h-screen pt-14 md:pt-[70px]">
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
+        </ModalProvider>
       </body>
     </html>
   );

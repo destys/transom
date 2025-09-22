@@ -14,7 +14,7 @@ export const ServiceCard = ({ data }: Props) => {
     <Link
       href={`/services/${data.slug}`}
       className={cn(
-        "group bg-[#EEF3FB] h-[225px] p-5 transition-colors hover:bg-aqua-base flex flex-col justify-between overflow-hidden relative",
+        "group bg-[#EEF3FB] h-[225px] p-5 transition-colors hover:bg-aqua-base flex flex-col justify-between overflow-hidden relative max-lg:flex-col-reverse",
         data.isWide && "lg:col-span-2",
         data.iconPosition.includes("top") && "flex-col-reverse items-start"
       )}
@@ -22,7 +22,7 @@ export const ServiceCard = ({ data }: Props) => {
       {data.icon && (
         <div
           className={cn(
-            "absolute top-5 left-5 w-16 h-16 text-aqua-base group-hover:text-sand-base",
+            "absolute top-5 left-5 w-16 h-16 text-aqua-base group-hover:text-sand-base max-lg:top-5 max-lg:!left-auto max-lg:!right-5 max-lg:!bottom-auto",
             data.iconPosition === "top-right" && "left-auto right-5",
             data.iconPosition === "bottom-right" &&
               "left-auto right-5 top-auto bottom-5",

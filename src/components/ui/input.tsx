@@ -28,7 +28,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {...(props as any)}
           mask={mask}
           // Обычно удобнее получать "чистое" значение без форматирования
-          unmask={true}
+          unmask={false}
           data-slot="input"
           // Пробрасываем ref во внутренний input
           inputRef={(el) => {

@@ -35,7 +35,12 @@ export const PageIntro = ({
       ];
 
   return (
-    <div className={cn("relative min-h-[400px] flex items-center", className)}>
+    <div
+      className={cn(
+        "relative min-h-[300px] lg:min-h-[400px] flex items-center",
+        className
+      )}
+    >
       {backgroundColor && (
         <div
           className="absolute inset-0 z-20 opacity-60"
