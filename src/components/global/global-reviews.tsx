@@ -62,7 +62,7 @@ export const GlobalReviews = ({ data, isBackground = false }: Props) => {
               className="!flex flex-col md:items-center md:flex-row gap-4 md:gap-10 2xl:gap-[120px]"
             >
               <div
-                className="relative h-[537px] md:basis-1/3 md:shrink-0 md:max-w-[380px]"
+                className="relative h-[537px] md:basis-1/3 md:shrink-0 md:max-w-[380px] cursor-pointer"
                 onClick={() => {
                   setIndex(i);
                   setOpen(true);

@@ -9,6 +9,7 @@ export interface NewsProps {
   subtitle: string;
   slug: string;
   excerpt: string;
+  pubDate: string;
   createdAt: string;
   search_tags: string;
   image: MediaProps;

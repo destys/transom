@@ -7,11 +7,11 @@ import { HeaderMobileWrapper } from "./header/header-mobile-wrapper";
 
 export const Header = () => {
   return (
-    <header className="fixed top-0 left-0 z-[10000] w-full flex items-center justify-between lg:gap-3.5 xl:gap-7 2xl:gap-14 bg-white h-[70px] max-md:bg-aqua-base">
+    <header className="fixed top-0 left-0 z-[100] w-full flex items-center justify-between lg:gap-3.5 xl:gap-7 2xl:gap-14 bg-white h-[70px] max-md:bg-aqua-base">
       <HeaderMobileWrapper />
       <Link
         href={"/"}
-        className="flex justify-center items-center basis-[140px] xl:basis-[170px] h-[70px] bg-aqua-base shrink-0 mx-auto lg:ml-0"
+        className="flex justify-center items-center basis-[140px] lg:basis-[170px] h-[70px] bg-aqua-base shrink-0 max-md:mx-auto mr-auto"
       >
         <Image
           src={"/logo_horisontal.svg"}

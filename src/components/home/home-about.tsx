@@ -98,7 +98,7 @@ export const HomeAbout = ({ data }: Props) => {
             <div className="grid grid-cols-1 lg::grid-cols-2 gap-4 mb-10 pb-9 border-b border-[#EEF3FB] max-w-[480px]">
               <div className="flex gap-5">
                 <div className="mt-1 shrink-0 basis-2.5 size-2.5 bg-sand-base" />
-                <div>
+                <Link href={"/projects"} className="hover:text-aqua-base">
                   <div className="leading-none font-bold text-lg mb-3 text-aqua-base">
                     Проекты
                   </div>
@@ -106,7 +106,7 @@ export const HomeAbout = ({ data }: Props) => {
                     Реализовано более <br />
                     100 проектов
                   </div>
-                </div>
+                </Link>
               </div>
               <div className="flex gap-5">
                 <div className="mt-1 shrink-0 basis-2.5 size-2.5 bg-sand-base" />

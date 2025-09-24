@@ -15,7 +15,7 @@ export const HeaderMenu = async () => {
           <li key={item.id}>
             <Link
               href={item.link}
-              className="flex items-center gap-1 font-semibold text-xs text-aqua-base transition-colors hover:text-sand-base"
+              className="flex items-center gap-1 font-semibold text-base text-aqua-base transition-colors hover:text-sand-base"
             >
               {item.title}
               {item.addChevron && <ChevronRightIcon className="size-3" />}

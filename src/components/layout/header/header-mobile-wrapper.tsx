@@ -19,7 +19,7 @@ export const HeaderMobileWrapper = () => {
   return (
     <div className="lg:hidden">
       <button
-        className="size-[70px] max-md:size-14 flex items-center justify-center cursor-pointer relative z-20 lg:hidden text-white"
+        className="size-[70px] max-md:size-14 flex items-center justify-center cursor-pointer relative z-20 lg:hidden text-white bg-aqua-base"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
         {isMenuOpen ? (

@@ -127,7 +127,7 @@ const ServicePage = async ({ params }: Props) => {
         crumbs={crumbs}
       />
       {service.text_1 && (
-        <div className="container typography mb-16">
+        <div className="container typography mb-16 lg:text-[22px]">
           <BlocksRenderer content={service.text_1} />
         </div>
       )}
