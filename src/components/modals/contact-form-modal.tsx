@@ -64,8 +64,8 @@ export function ContactFormModal({
 
       {/* Подзаголовок */}
       <p className="text-sand-base text-sm mx-auto mb-8">
-        Напишите Ваш телефон и мы свяжемся с&nbsp;Вами
-        <br className="hidden sm:block" />в ближайшее время
+        Напишите Ваш телефон, и мы свяжемся с Вами
+        <br className="hidden sm:block" /> в ближайшее время
       </p>
 
       <Form {...form}>

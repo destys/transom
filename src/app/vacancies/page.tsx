@@ -32,6 +32,11 @@ const VacanciesPage = async () => {
   return (
     <div className="mb-48">
       <PageIntro title={page.title} titleColor="#000e54" className="-mb-20" />
+      {page.description && (
+        <div className="container typography mb-16 lg:text-[22px]">
+          <BlocksRenderer content={page.description} />
+        </div>
+      )}
       <div className="bg-[#EEF3FB] py-32 mb-24">
         <div className="container">
           <SearchForm data={page.vacancies} />

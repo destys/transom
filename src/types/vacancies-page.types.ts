@@ -6,6 +6,7 @@ import { SeoProps } from "./seo.types";
 
 export interface VacanciesPageProps {
   title: string;
+  description: BlocksContent;
   seo: SeoProps;
   vacancies: VacancyProps[];
 }
